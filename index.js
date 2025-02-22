@@ -55,6 +55,7 @@ function CemberinCevresi(r) {
 }
 
 /* (Oto test yok) Yukarıdaki CemberinCevresi fonksiyonunu yarıçap = 5 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
+console.log(CemberinCevresi(5))
 
 /* 	GÖREV 2:  
 - CemberinAlani fonksiyonunu kullanarak aşağıdaki yönergeleri uygulayın:
@@ -68,9 +69,10 @@ function CemberinAlani(r, pi) {
   return pi * Math.pow(r, 2);
 }
 
-console.log(2);
+console.log(CemberinAlani(r,pi));
 
 /* (Oto test yok) Yukarıdaki CemberinAlani fonksiyonunu yarıçap = 15 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
+
 
 /* 	GÖREV 3:
 	- Sayfanın en üstünde global değişken olarak tanımlanmış bir sayilar dizisi bulunmaktadır. Bu dizi içinde 0 ile 1000 arasında rasgele oluşturulmuş tam sayılar ve ondalıklı sayılar bulunmaktadır. Bu diziyi kullanarak aşağıdakileri uygulayın:
@@ -100,28 +102,55 @@ let ucetambolunenler,
   tekraredensayilar;
 
 // 3a çözümü
+enkucuk = sayilar[0];
+enbuyuk = sayilar[0];
 
-/* kodlar buraya */
+for(const sayi of sayilar){
+  if ( sayi > enbuyuk){
+    enbuyuk = sayi;
+  }
+  if (sayi < enkucuk){
+    enkucuk = sayi
+  }
+};
 
 // 3b çözümü:
 
-/* kodlar buraya */
+ucetambolunenler = [];
+sayilar.forEach((sayi) => {
+  if (sayi % 3 === 0){
+    ucetambolunenler.push(sayi);
+  }
+});
 
 // 3c çözümü:
 
-/* kodlar buraya */
+ucebolunenlerintoplami = ucetambolunenler.reduce((toplam, sayi) => toplam + sayi, 0);
 
 // 3d çözümü
 
-/* kodlar buraya */
+besyuzdenkucuksayilar = sayilar.filter((sayi) => sayi < 500);
 
 // 3e çözümü
 
-/* kodlar buraya */
+siralisayilar = besyuzdenkucuksayilar.sort((a,b) => a - b);
 
 // 3f çözümü
 
-/* kodlar buraya */
+let tekraredensayilarObje = {};
+sayilar.forEach(sayi => {
+ if (!tekraredensayilarObje[sayi]){
+  tekraredensayilarObje[sayi] = 1
+ } 
+  tekraredensayilarObje[sayi]++
+});
+tekraredensayilar = [];
+for (let key in tekraredensayilarObje){
+  const value = tekraredensayilarObje[key]
+  if (value > 1){
+    tekraredensayilar.push(`${key} sayısı ${value} kere tekrar edilmiştir`)
+  }
+};
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 
